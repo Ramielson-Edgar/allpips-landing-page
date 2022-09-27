@@ -1,0 +1,935 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+$font-seize-300: clamp(1.31rem, calc(-5.49rem + 34.02vw), 18.75rem);
+$font-seize-89: clamp(1.31rem, calc(-0.35rem + 8.29vw), 5.56rem);
+$font-seize-74: clamp(1.31rem, calc(0.02rem + 6.46vw), 4.63rem);
+$font-size-40: clamp(1.31rem, calc(0.85rem + 2.32vw), 2.50rem);
+$font-size-46: clamp(1.31rem, calc(0.70rem + 3.05vw), 2.88rem);
+$font-size-35: clamp(1.31rem, calc(0.97rem + 1.71vw), 2.19rem);
+$font-size-25: 1.563rem;
+$font-size-20: 1.25rem;
+$font-size-16: 1rem;
+$font-size-14: 0.875rem;
+
+$main-purple: #481BCE;
+$main-pink: #FF157A;
+$main-green: #6BF5DD;
+
+$text-dark-900: #292539;
+$text-grey-700: #242424;
+$text-grey-400: #515151;
+$text-grey-300: #999999;
+$text-blue-900: #0E34FF;
+
+
+$main-background: #F9FAFF;
+$main-background-second: #FBFBFF;
+$main-background-third: #F7F7FF;
+$white-color: #fff;
+
+$roboto-font: 'Roboto', sans-serif;
+
+$font-weight-700: 700;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-300: 300;
+
+$z-index-fixed: 10;
+$z-index-bottom: 1;
+$z-index-minus: -1;
+
+
+@mixin center-flex($type: 'all') {
+    display: flex;
+
+    @if ($type =='all') {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @else if ($type =='hor') {
+        justify-content: center;
+    }
+
+    @else if ($type =='ver') {
+        align-items: center;
+    }
+}
+
+
+@mixin responsive-grid ($gap, $width) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
+    gap: $gap;
+}
+
+
+@mixin img-default-property($position-center, $position-right, $size) {
+    background-repeat: no-repeat;
+    background-position: $position-center, $position-right;
+    background-size: $size;
+
+}
+
+%list-defaults {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.allpips-copy-trading {
+    font-family: $roboto-font;
+    font-size: $font-size-16;
+    font-weight: $font-weight-400;
+    color: $text-dark-900;
+    line-height: 24px;
+
+    background-color: $white-color;
+    scroll-behavior: smooth;
+}
+
+
+
+.allpips-copy-trading html {
+    box-sizing: border-box;
+}
+
+.allpips-copy-trading *,
+.allpips-copy-trading *::before,
+.allpips-copy-trading *::after {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    text-transform: capitalize;
+    font-weight: $font-weight-700;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-defaults {
+    display: inline-block;
+    text-align: center;
+    margin: auto 0;
+
+    font-size: $font-size-14;
+    line-height: 21px;
+    text-decoration: none;
+    text-transform: capitalize;
+
+    cursor: pointer;
+
+    padding: 17px 32px;
+    background-color: transparent;
+    transform: translateY(0);
+    border-radius: 80px;
+    transition: all .2s ease-in;
+
+    &:focus,
+    &:hover {
+        transform: translateY(-5px);
+        text-decoration: none;
+    }
+}
+
+.allpips-copy-trading .btn-primary {
+    color: $white-color;
+    background-color: $main-purple;
+
+    &:focus,
+    &:hover {
+        background-color: #5F3AF6;
+    }
+}
+
+.btn-secondary {
+    color: $main-pink;
+    border: 1px solid $main-pink;
+    padding: 12px 50px;
+
+    &:focus,
+    &:hover {
+        color: $white-color;
+        border: 1px solid $main-pink;
+        background-color: $main-pink;
+    }
+}
+
+.allpips-copy-trading .btn-third {
+    color: $text-dark-900;
+    background-color: $main-green;
+
+    &:focus,
+    &:hover {
+        background-color: #86FFEA;
+    }
+}
+
+.allpips-copy-trading .btn-four {
+    color: $text-dark-900;
+    background-color: $main-green;
+
+    &:focus,
+    &:hover {
+        background-color: #86FFEA;
+    }
+}
+
+.allpips-copy-trading .btn-fifth {
+    color: $white-color;
+    background-color: $main-pink;
+
+    &:focus,
+    &:hover {
+        background-color: #FF3A8F;
+    }
+}
+
+.allpips-copy-trading-btn-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $text-blue-900;
+
+    &:hover,
+    &:focus {
+        color: $text-blue-900;
+        text-decoration: none;
+    }
+}
+
+.allpips-copy-trading .arrow-right {
+    margin-left: 10px;
+    transform: translateX(0);
+    transition: all .3s ease-in;
+}
+
+.allpips-copy-trading-btn-link:hover .arrow-right {
+    transform: translateX(5px);
+}
+
+.allpips-copy-trading .section-padding {
+    padding: 70px 0;
+}
+
+//main //
+.allpips-main-nav__logo {
+    display: block;
+}
+
+.allpips-main-nav {
+    padding: 17px 0;
+}
+
+.allpips-main-header-wrapper {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.allpips-copy-trading-footer-wrapper,
+.allpips-main-nav {
+    display: grid;
+    grid-template-columns: auto 440px;
+    align-items: center;
+}
+
+
+
+.allpips-main-nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.allpips-main-nav__list {
+    display: flex;
+    align-items: center;
+    @extend %list-defaults;
+}
+ 
+
+.allpips-main-nav__link {
+    display: block;
+    color: #7D7D7D;
+    text-decoration: none;
+    font-weight:$font-weight-500;
+    padding: 0 16px;
+  
+    transition: all .2s ease-in;
+
+    &:hover,
+    &:focus {
+        color: #131313;
+        text-decoration: none;
+    }
+}
+
+
+
+//hero// 
+.allpips-copy-trading .hero-section {
+    background: url('../img/bg-pip.png') $main-background;
+    @include img-default-property(center, center, auto);
+}
+
+.allpips-copy-trading .hero-section__title {
+    font-size: $font-seize-89;
+    font-weight: $font-weight-700;
+    color: $main-purple;
+    margin-bottom: 30px;
+}
+
+.allpips-copy-trading .hero-section__sub-description {
+    font-size: $font-seize-74;
+    font-weight: $font-weight-300;
+    color: $text-dark-900;
+}
+
+.allpips-copy-trading .hero-section__description {
+    margin-bottom: 30px;
+}
+
+// top-investor //
+.allpips-copy-trading .allpips-copy-trading__title {
+    font-size: $font-size-40;
+    margin-bottom: 30px;
+}
+
+.allpips-copy-trading .allpips-copy-trading__description {
+    margin-bottom: 30px;
+}
+
+
+//help you //
+
+.allpips-main-header,
+.allpips-copy-trading .why-choose-allpips,
+.allpips-copy-trading .top-traders,
+.allpips-copy-trading .help-you {
+    background-color: $main-background-second;
+}
+
+.allpips-copy-trading .why-choose-allpips  {
+    background-image: url('../img/shape-pips.png');
+    background-repeat: no-repeat;
+    background-position: bottom right 70px;
+    background-size: 800px;
+    
+}
+
+.allpips-copy-trading .help-you-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 100px;
+}
+
+.allpips-copy-trading .help-you-title {
+    color: $main-purple;
+    max-width: 420px;
+    text-align: left;
+}
+
+.allpips-copy-trading .help-you__title {
+    margin-bottom: 30px;
+}
+
+.allpips-copy-trading .help-you__description {
+    margin-bottom: 30px;
+    columns: $text-grey-700;
+}
+
+//banner // 
+.allpips-copy-trading .banner-section {
+    position: relative;
+
+}
+
+.allpips-copy-trading .banner-section-wrapper {
+    background: url('../img/banner-icon-bg.png') #292539;
+    @include img-default-property(left, left, contain);
+    border-radius: 20px;
+}
+
+
+.allpips-copy-trading .banner-section__img {
+    position: absolute;
+    top: -190px;
+    left: 0;
+
+}
+
+.allpips-copy-trading .banner-section-header__title {
+    font-size: $font-size-35;
+    color: $white-color;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+
+
+
+//the-trade// 
+.allpips-copy-trading .they-trade-stats__percentages {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.allpips-copy-trading .they-trade-stats__title {
+    font-size: $font-size-46;
+    margin-left: 10px;
+}
+
+.allpips-copy-trading .they-trade-stats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+}
+
+//start // 
+.allpips-copy-trading .start-copy-trading-header {
+    font-size: $font-size-40;
+    line-height: 1.3;
+    margin-bottom: 67px;
+}
+
+.allpips-copy-trading .start-copy-trading__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 15px;
+    margin: 0;
+}
+
+.allpips-copy-trading .start-copy-trading__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+}
+
+
+
+.allpips-copy-trading .start-copy-trading__header {
+    font-size: $font-size-25;
+    line-height: 1.1;
+}
+
+.allpips-copy-trading .start-copy-trading__img {
+    position: relative;
+    z-index: 2;
+}
+
+.allpips-copy-trading .start-copy-trading__count {
+    position: absolute;
+    left: -20px;
+
+    font-size: 300px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    z-index: 1;
+}
+
+//top traders // 
+.allpips-copy-trading .top-traders-header {
+    margin-bottom: 64px;
+}
+
+.allpips-copy-trading .top-traders__title {
+    font-size: $font-size-40;
+    color: $main-purple;
+    margin-bottom: 30px;
+}
+
+.allpips-copy-trading .top-traders__description {
+    color: $text-grey-400;
+}
+
+.allpips-copy-trading .top-traders__list {
+    @extend %list-defaults;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    justify-items: center;
+    align-items: center;
+}
+
+.allpips-copy-trading .top-traders-wrapper {
+    padding: 10px 5px;
+    background-color: $white-color;
+    border-radius: 10px;
+}
+
+.allpips-copy-trading .top-traders__item {
+    filter: drop-shadow(19px 44px 35px rgba(201, 201, 201, 0.2));
+}
+
+//why-choose-allpips__title//
+.allpips-copy-trading .why-choose-allpips-header {
+    margin-bottom: 100px;
+}
+
+.allpips-copy-trading .why-choose-allpips__title {
+    font-size: $font-size-40;
+    color: $main-purple;
+    max-width: 465px;
+    margin-bottom: 30px;
+}
+
+.allpips-copy-trading .why-choose-allpips__description {
+    max-width: 586px;
+}
+
+.allpips-copy-trading .why-choose-allpips__list {
+    @extend %list-defaults;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(271px, 1fr));
+    gap: 5px;
+}
+
+.allpips-copy-trading .why-choose-allpips__item {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        'img'
+        'why-choose-allpips__body why-choose-allpips__body';
+
+    background-color: $white-color;
+    padding: 20px 20px;
+}
+
+.allpips-copy-trading .why-choose-allpips__body-title {
+    font-size: $font-size-20;
+    font-weight: $font-weight-700;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.allpips-copy-trading .why-choose-allpips__body-text {
+    font-size: $font-size-14;
+}
+
+//frequently-header //
+.allpips-copy-trading .frequently-header {
+    margin-bottom: 50px;
+}
+
+.allpips-copy-trading .frequently-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+
+}
+
+.allpips-copy-trading .frequently-count,
+.allpips-copy-trading .frequently-title,
+.allpips-copy-trading .frequently-icon.collapsed .frequently-count,
+.allpips-copy-trading .frequently-icon.collapsed .frequently-title {
+    font-size: $font-size-20;
+    color: $text-dark-900;
+    font-weight: $font-weight-500;
+    line-height: 24px;
+
+}
+
+.allpips-copy-trading .frequently-count,
+.allpips-copy-trading .frequently-title {
+    color: $main-purple;
+}
+
+
+
+.allpips-copy-trading .frequently-icon,
+.allpips-copy-trading .frequently-icon.collapsed {
+    background-image: url('/icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    transition: all .3s ease-in;
+    text-decoration: none;
+    box-shadow: none;
+
+    &:active,
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        box-shadow: none;
+    }
+}
+
+
+.allpips-copy-trading .frequently-icon {
+    display: grid;
+    grid-template-columns: 12px 1fr;
+    gap: 30px;
+    background-image: url('/icons/arrow-up.svg');
+
+}
+
+.card {
+
+    border-radius: 10px;
+}
+
+.card-header {
+    background-color: #FDFDFD;
+}
+
+.card-body {
+    background-color: #F9F9FF;
+    border-left: 3px solid $main-purple;
+    padding: 2rem;
+}
+
+.card-body__text {
+    line-height: 1.8;
+}
+
+
+
+//footer // 
+.allpips-copy-trading-footer {
+    background-color: #292539;
+    padding: 70px 0;
+}
+
+
+.main-nav__link-footer {
+    color: $white-color;
+
+    &:hover,
+    &:focus {
+        color: $main-pink;
+    }
+}
+
+
+@media (max-width: 1198px) {
+    .allpips-copy-trading .hero-section__title {
+        font-size: clamp(1.31rem, calc(-0.13rem + 7.20vw), 5.00rem);
+    }
+
+    .allpips-copy-trading .hero-section__sub-description {
+        font-size: clamp(1.31rem, calc(0.36rem + 4.76vw), 3.75rem);
+    }
+
+    .allpips-copy-trading .banner-section-header__title {
+        font-size: 26px;
+    }
+
+    .allpips-copy-trading .allpips-copy-trading__title {
+        font-size: $font-size-35;
+    }
+
+    .allpips-copy-trading .allpips-copy-trading__description {
+        font-size: $font-size-14;
+        line-height: 21px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .allpips-copy-trading .hero-section__title {
+        font-size: clamp(1.31rem, calc(0.36rem + 4.76vw), 3.75rem);
+    }
+
+    .allpips-copy-trading .hero-section__sub-description {
+        font-size: clamp(1.31rem, calc(0.85rem + 2.32vw), 2.50rem);
+    }
+
+    .allpips-copy-trading .help-you__title {
+        font-size: $font-size-25;
+    }
+
+    .allpips-copy-trading .hero-section__description,
+    .allpips-copy-trading .help-you__description {
+        font-size: $font-size-14;
+        line-height: 21px;
+    }
+
+    .allpips-copy-trading .help-you-wrapper {
+        gap: 30px;
+        margin-top: 68px;
+    }
+
+    .allpips-copy-trading .banner-section-header__title {
+        font-size: $font-size-20;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+
+    .allpips-copy-trading .banner-section__img {
+        top: -130px;
+    }
+
+    .allpips-copy-trading .they-trade-stats {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 24px;
+    }
+
+    .allpips-copy-trading .they-trade-stats__percentages {
+        margin-bottom: 0;
+    }
+
+    .allpips-copy-trading .allpips-copy-trading__title {
+        font-size: $font-size-25;
+        margin-bottom: 24px;
+    }
+
+    .allpips-copy-trading .top-traders-wrapper {
+        max-width: 646px;
+        padding: 40px 10px;
+    }
+
+    .allpips-copy-trading .top-traders__list {
+        max-width: 560px;
+        margin: 0 auto;
+        gap: 5px;
+    }
+
+    .allpips-copy-trading .frequently-wrapper {
+        max-width: unset;
+    }
+
+    .allpips-copy-trading .start-copy-trading__list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        row-gap: 30px;
+    }
+
+    .allpips-copy-trading .start-copy-trading__header {
+        font-size: $font-size-20;
+    }
+
+    .allpips-copy-trading .start-copy-trading__description {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .allpips-copy-trading .start-copy-trading__item>img {
+        max-width: 60%;
+    }
+
+    .allpips-copy-trading .start-copy-trading__count {
+        font-size: 200px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .allpips-copy-trading .why-choose-allpips {
+        background-position: bottom center;
+    }
+
+    .allpips-copy-trading .hero-section__title {
+        font-size: 3.75rem;
+    }
+
+    .allpips-copy-trading .hero-section__sub-description {
+        font-size: 2.8rem;
+    }
+
+    .allpips-copy-trading .hero-section__description {
+        font-size: $font-size-16;
+    }
+
+    .allpips-copy-trading .banner-section {
+        height: 500px;
+    }
+
+    .allpips-copy-trading .banner-section__img {
+        top: -140px;
+        left: 83px;
+    }
+
+    .allpips-copy-trading .banner-section-header {
+        margin: 250px auto 0;
+    }
+
+
+    .allpips-copy-trading .allpips-copy-trading-header {
+        margin-top: 50px;
+    }
+
+    .allpips-copy-trading .why-choose-allpips__item {
+        grid-template-columns: 130px 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: unset;
+        gap: 30px;
+    }
+
+    .allpips-copy-trading .frequently-icon .frequently-count,
+    .allpips-copy-trading .frequently-icon.collapsed .frequently-count,
+    .allpips-copy-trading .frequently-icon .frequently-title,
+    .allpips-copy-trading .frequently-icon.collapsed .frequently-title {
+        font-size: $font-size-16;
+        line-height: 24px;
+    }
+
+    .allpips-copy-trading .frequently-icon {
+        display: flex;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .allpips-main-nav__list {
+        display: none;
+    }
+
+    .allpips-main-nav {
+         display: flex;
+         justify-content: space-between;
+    }
+    .allpips-copy-trading .section-padding {
+        padding: 50px 0;
+    }
+
+    .allpips-copy-trading-footer {
+        padding: 50px 15px;
+    }
+
+    .allpips-copy-trading-footer-wrapper,
+    .main-nav-wrapper,
+    .main-nav__list-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav-wrapper {
+        max-width: unset;
+    }
+
+    .allpips-copy-trading .why-choose-allpips-header,
+    .main-nav__list-footer {
+        margin-bottom: 50px;
+    }
+
+
+    .allpips-main-nav__link {
+        padding: 16px 0;
+    }
+
+    .allpips-copy-trading .hero-section__sub-description {
+        font-size: clamp(2.50rem, calc(0.93rem + 7.84vw), 3.75rem);
+    }
+
+    .allpips-copy-trading .hero-section__title {
+        display: flex;
+        flex-direction: column;
+        font-size: clamp(3.25rem, calc(2.62rem + 3.14vw), 3.75rem);
+    }
+
+    .allpips-copy-trading .hero-section__description {
+        font-size: $font-size-14;
+        max-width: 440px;
+    }
+
+
+    .allpips-copy-trading .start-copy-trading-header,
+    .allpips-copy-trading .top-traders__title,
+    .allpips-copy-trading .allpips-copy-trading__description,
+    .allpips-copy-trading .allpips-copy-trading__title {
+        margin-bottom: 24px;
+    }
+
+
+    .allpips-copy-trading .help-you-title,
+    .allpips-copy-trading .why-choose-allpips-header,
+    .allpips-copy-trading .banner-section-header,
+    .allpips-copy-trading .allpips-copy-trading-header,
+    .allpips-copy-trading .hero-section-header {
+        flex-direction: column;
+        @include center-flex('all');
+        text-align: center;
+    }
+
+    .allpips-copy-trading .why-choose-allpips__item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .allpips-copy-trading .banner-section__img {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -33%);
+    }
+
+
+    .allpips-copy-trading .why-choose-allpips-header,
+    .allpips-copy-trading .banner-section-header__title {
+        max-width: 340px;
+    }
+
+    .allpips-copy-trading .start-copy-trading__count {
+        left: 10px;
+    }
+
+    .allpips-copy-trading .start-copy-trading__item>img {
+        max-width: 100%;
+    }
+
+    .allpips-copy-trading .they-trade-stats {
+        justify-items: center;
+    }
+
+    .allpips-copy-trading .why-choose-allpips__title {
+        font-size: 25px;
+    }
+
+    .allpips-copy-trading .they-trade-stats__title {
+        font-size: 2.5rem;
+    }
+
+    .allpips-copy-trading .help-you-title {
+        font-size: clamp(1.69rem, calc(0.67rem + 5.10vw), 2.50rem);
+    }
+
+    .allpips-copy-trading .start-copy-trading-header,
+    .allpips-copy-trading .allpips-copy-trading__title,
+    .allpips-copy-trading .top-traders__title,
+    .allpips-copy-trading .frequently-header {
+        font-size: clamp(1.88rem, calc(1.09rem + 3.92vw), 2.50rem);
+    }
+
+
+
+
+    .allpips-copy-trading .frequently-icon,
+    .allpips-copy-trading .frequently-icon.collapsed {
+        background-position: top right;
+        background-size: 20px;
+    }
+
+    .card-header {
+        padding: 20px 10px;
+    }
+
+    .allpips-copy-trading .frequently-icon .frequently-title,
+    .allpips-copy-trading .frequently-icon.collapsed .frequently-title {
+        max-width: 200px;
+        line-height: 20px;
+    }
+
+    .allpips-copy-trading .banner-section-header__title {
+        font-size: clamp(1.13rem, calc(0.97rem + 0.78vw), 1.25rem);
+        line-height: 1.5;
+    }
+
+    .allpips-copy-trading .banner-section-header {
+        margin: 260px auto 0;
+    }
+
+}
